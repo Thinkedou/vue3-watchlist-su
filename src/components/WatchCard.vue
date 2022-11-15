@@ -16,6 +16,14 @@ const props = defineProps({
     }
 })
 
+const emits = defineEmits(['epSelected'])
+
+const handleContinueBtn = ()=>{
+    console.log('btn clické sur enfant + emits')
+    emits('epSelected')
+}
+
+
 // va renvoyer une chaîne avec le format 
 // EPO2SE12 
 const epDisplay = computed(()=>{
@@ -38,7 +46,7 @@ const epDisplay = computed(()=>{
             <div class="course-info">
                 <h6>{{epDisplay}}</h6>
                 <h2>{{epTitle}}</h2>
-                <button class="btn" >Continue</button>
+                <button class="btn" @click="handleContinueBtn">Continue</button>
             </div>
         </div>  
     </div>

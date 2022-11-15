@@ -7,6 +7,11 @@ import {userWatchList} from '@/assets/static/js/watchList.js'
 
 const watchList = ref(userWatchList)
 
+
+const onSelectedEp = ()=>{
+  console.log('Parent a bien entendu!')
+}
+
 console.log(watchList)
 
 </script>
@@ -30,6 +35,7 @@ console.log(watchList)
           :series="episode.series"
           :episode="episode.episode"
           :season="episode.season"
+          @epSelected="onSelectedEp"
         />
        
         
