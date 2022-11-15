@@ -16,8 +16,12 @@ const props = defineProps({
     }
 })
 
+// va renvoyer une chaîne avec le format 
+// EPO2SE12 
 const epDisplay = computed(()=>{
-    return 'computed!'
+    const ep = props.episode<10?'0'+props.episode:props.episode
+    const season = props.season<10?'0'+props.season:props.season
+    return `🐑${season}✨${ep}`
 })
 
 
@@ -32,7 +36,7 @@ const epDisplay = computed(()=>{
                 <h2>{{series}}</h2>
             </div>
             <div class="course-info">
-                <h6>ep: {{epDisplay}}</h6>
+                <h6>{{epDisplay}}</h6>
                 <h2>{{epTitle}}</h2>
                 <button class="btn" >Continue</button>
             </div>
@@ -41,4 +45,7 @@ const epDisplay = computed(()=>{
 </template>
 
 <style>
+
+
+
 </style>
