@@ -19,8 +19,8 @@ const props = defineProps({
 const emits = defineEmits(['epSelected'])
 
 const handleContinueBtn = ()=>{
-    console.log('btn clické sur enfant + emits')
-    emits('epSelected')
+    console.log('episode selectionné: > ', props.epTitle)
+    emits('epSelected',props.epTitle)
 }
 
 
@@ -52,7 +52,7 @@ const epDisplay = computed(()=>{
     </div>
 </template>
 
-<style>
+<style scoped>
 
 
 

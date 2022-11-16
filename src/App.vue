@@ -6,11 +6,14 @@ import WatchCard from './components/WatchCard.vue';
 import {userWatchList} from '@/assets/static/js/watchList.js'
 
 const watchList = ref(userWatchList)
+const currentEpPlaying = ref('')
 
 
-const onSelectedEp = ()=>{
-  console.log('Parent a bien entendu!')
+const onSelectedEp = (emitsData)=>{
+  console.log('Parent a bien entendu!',emitsData)
+  currentEpPlaying.value = emitsData
 }
+
 
 console.log(watchList)
 
@@ -23,7 +26,9 @@ console.log(watchList)
               <li>Ici c'est fixe</li>
               <li>Parent (nav, button, etc)</li>
           </ul>
-          <span>▶ Lecture en cours: (ep title) </span>
+
+          <span v-if="currentEpPlaying===''">⏸ séléctionnez un ep </span>
+          <span v-else>▶ Lecture en cours: {{currentEpPlaying}} </span>
          
       </div>
       <div class='col right'>
